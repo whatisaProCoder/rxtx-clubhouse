@@ -24,8 +24,8 @@
 }
 
 @font-face {
-  font-family: "Poppins-Thin";
-  src: url("./Poppins-Thin.ttf") format("truetype");
+  font-family: "Poppins-Light";
+  src: url("./Poppins-Light.ttf") format("truetype");
 }
 
 body {
@@ -88,7 +88,7 @@ a {
 
 .error-page-prompt {
   text-align: center;
-  font-family: "Poppins-Thin";
+  font-family: "Poppins-Light";
   margin-top: 6rem;
   color: #c2c2c2;
 }
