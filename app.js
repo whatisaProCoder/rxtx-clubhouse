@@ -41,6 +41,10 @@ const homeRouter = require("./routes/homeRouter");
 
 app.use("/", homeRouter);
 
+const authRouter = require("./routes/authRouter");
+
+app.use("/auth", authRouter);
+
 app.get("/{*splat}", (req, res) => {
   res.status(404).render("404");
 })

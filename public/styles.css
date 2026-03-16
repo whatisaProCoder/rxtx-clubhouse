@@ -23,6 +23,77 @@
   src: url("./Poppins-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Poppins-Thin";
+  src: url("./Poppins-Thin.ttf") format("truetype");
+}
+
 body {
   background-color: #191919;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  background-color: #252525;
+  border-bottom: 1px solid #0A0A0A;
+  padding: 0.675rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .brand-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.header .brand-logo {
+  height: 2.5rem;
+}
+
+.header .brand-name {
+  margin-left: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.header .brand-name .title {
+  font-family: "Poppins-Bold";
+  font-size: 1.125rem;
+}
+
+.header .brand-name .subtext {
+  font-family: "Poppins-SemiBold";
+  color: #c2c2c2;
+  font-size: 0.75rem;
+}
+
+.header .nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  font-family: "Poppins-SemiBold";
+  margin-right: 0.5rem;
+}
+
+.error-page-prompt {
+  text-align: center;
+  font-family: "Poppins-Thin";
+  margin-top: 6rem;
+  color: #c2c2c2;
+}
+
+.error-page-prompt .fourofour {
+  color: #f4f4f4;
+  font-family: "Poppins-Regular";
 }
