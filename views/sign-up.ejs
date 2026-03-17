@@ -10,6 +10,41 @@
 
 <body>
   <%- include("./partials/header") %>
+    <div class="content-container">
+      <div class="form-container">
+        <div class="title">
+          Sign Up
+        </div>
+        <form action="/sign-up" method="POST">
+          <div class="input-container">
+            <input type="text" name="firstName" placeholder="First Name">
+          </div>
+          <div class="input-container">
+            <input type="text" name="lastName" placeholder="Last Name">
+          </div>
+          <div class="input-container">
+            <input type="email" name="email" placeholder="E-Mail">
+          </div>
+          <div class="input-container">
+            <input type="password" name="password" placeholder="Password">
+          </div>
+          <div class="input-container">
+            <input type="password" name="confirmPassword" placeholder="Confirm Password">
+          </div>
+          <div class="admin-checkbox-section">
+            <label for="isAdmin">Do you want to be an admin?</label>
+            <input type="checkbox" name="isAdmin" id="isAdmin">
+          </div>
+          <div class="form-button-container">
+            <div style="flex:1"></div>
+            <div class="button-group">
+              <input type="reset" value="Reset" class="reset-button">
+              <input type="submit" value="Submit" class="submit-button">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
 </body>
 
 </html>

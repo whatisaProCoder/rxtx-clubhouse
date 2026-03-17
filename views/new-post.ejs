@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RXTX - Login</title>
+  <title>RXTX - New Post</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 
@@ -13,14 +13,14 @@
     <div class="content-container">
       <div class="form-container">
         <div class="title">
-          Login
+          New Post
         </div>
-        <form action="/log-in" method="POST">
+        <form action="/post/new" method="POST">
           <div class="input-container">
-            <input type="email" name="email" placeholder="E-Mail">
+            <input type="text" name="title" placeholder="Title">
           </div>
           <div class="input-container">
-            <input type="password" name="password" placeholder="Password">
+            <textarea name="body" placeholder="Write something..."></textarea>
           </div>
           <div class="form-button-container">
             <div style="flex:1"></div>

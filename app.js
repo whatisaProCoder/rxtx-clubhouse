@@ -45,6 +45,14 @@ const authRouter = require("./routes/authRouter");
 
 app.use("/auth", authRouter);
 
+const membershipRouter = require("./routes/membershipRouter");
+
+app.use("/membership", membershipRouter);
+
+const postRouter = require("./routes/postRouter");
+
+app.use("/post", postRouter);
+
 app.get("/{*splat}", (req, res) => {
   res.status(404).render("404");
 })
