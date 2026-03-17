@@ -13,12 +13,25 @@
     <div class="content-container">
       <div class="content">
         <div class="welcome-banner">
-          <div class="greeting-section">
-            <div class="greeting">Welcome, <%= currentUser?.firstName %>!</div>
-            <div class="subtext">Join a club to become a member.</div>
-          </div>
-          <a class="banner-button" href="/membership/code">
-            Get Membership
+          <% if(locals.currentUser) {%>
+            <% if(!currentUser.is_member && !currentUser.is_admin) { %>
+              <div class="greeting-section">
+                <div class="greeting">Welcome, <%= currentUser.firstname %>!</div>
+                <div class="subtext">Join a club to become a member.</div>
+              </div>
+              <a class="banner-button" href="/membership/code">
+                Get Membership
+              </a>
+              <% } else if(currentUser.is_member) { %>
+                <div class="greeting-section">
+                  <div class="greeting">Welcome, <%= currentUser.firstname %>!</div>
+                  <div class="subtext">You are a member of this exclusive club.</div>
+                </div>
+                <a class="banner-button" href="/post/new">
+                  New Post
+                </a>
+                <% } %>
+                  <% } %>
         </div>
       </div>
     </div>

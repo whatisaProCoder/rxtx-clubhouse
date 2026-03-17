@@ -10,9 +10,9 @@ exports.getUserUsingID = async (id) => {
   return rows[0];
 }
 
-exports.addUser = async ({ firstName, lastName, email, hashedPassword }) => {
+exports.addUser = async ({ firstname, lastname, email, hashedPassword }) => {
   await pool.query(
     "INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4)",
-    [firstName, lastName, email, hashedPassword]
+    [firstname, lastname, email, hashedPassword]
   );
 }

@@ -9,11 +9,11 @@ const maxChars = (maxLength) => `must be within ${maxLength} characters`;
 
 
 const validateUserSignUp = [
-  body("firstName")
+  body("firstname")
     .trim()
     .notEmpty().withMessage("First name " + cannotBeEmpty)
     .isLength({ max: 100 }).withMessage("First name " + maxChars(100)),
-  body("lastName")
+  body("lastname")
     .trim()
     .notEmpty().withMessage("Last name " + cannotBeEmpty)
     .isLength({ max: 100 }).withMessage("Last name " + maxChars(100)),
@@ -57,12 +57,12 @@ exports.signUpPagePost = [
       )
     }
 
-    const { firstName, lastName, email, password } = matchedData(req);
+    const { firstname, lastname, email, password } = matchedData(req);
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
-      await db.addUser({ firstName, lastName, email, hashedPassword });
+      await db.addUser({ firstname, lastname, email, hashedPassword });
     } catch (error) {
       next(error);
     }
