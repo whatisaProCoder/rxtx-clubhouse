@@ -146,7 +146,7 @@ a {
 input,
 textarea {
   flex: 1;
-  border-radius: 0.5rem;
+  border-radius: 0.45rem;
   outline: none;
   background-color: #1D1D1D;
   border: none;
@@ -154,6 +154,15 @@ textarea {
   color: #f5f5f5;
   font-size: 1.08rem;
   font-family: "Poppins-Regular";
+}
+
+textarea {
+  field-sizing: content;
+  min-height: 8rem;
+  resize: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0.675rem 1rem;
 }
 
 .form-container .admin-checkbox-section {
