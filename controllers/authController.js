@@ -1,3 +1,53 @@
+const db = require("../db/queries");
+
+const { body, validateResult, matchedData } = require("express-validator");
+
+const cannotBeEmpty = "cannot be empty";
+const maxChars = (maxLength) => `must be within ${maxLength} characters`;
+
+
+const validateUserSignUp = [
+  body("firstName")
+    .trim()
+    .notEmpty().withMessage("First name " + cannotBeEmpty)
+    .isLength({ max: 100 }).withMessage("First name " + maxChars(100)),
+  body("lastName")
+    .trim()
+    .notEmpty().withMessage("Last name " + cannotBeEmpty)
+    .isLength({ max: 100 }).withMessage("Last name " + maxChars(100)),
+  body("email")
+    .trim()
+    .notEmpty().withMessage("E-Mail " + cannotBeEmpty)
+    .isEmail().withMessage("E-Mail is not valid")
+    .isLength({ max: 255 }).withMessage("E-mail " + maxChars(255))
+    .custom(async value => {
+      const user = await db.getUserUsingEmail(value);
+      if (user) {
+        throw new Error("E-Mail already in use")
+      }
+    }),
+  body("password")
+    .trim()
+    .notEmpty().withMessage("Password field " + cannotBeEmpty)
+    .isLength({ max: 255 }).withMessage("Password " + maxChars(255)),
+  body("confirmPassword")
+    .trim()
+    .custom((value, { req }) => value == req.body.password)
+    .withMessage("Passwords don't match!")
+]
+
+const validateUserLogIn = [
+  body("email")
+    .trim()
+    .notEmpty().withMessage("E-Mail " + cannotBeEmpty)
+    .isEmail().withMessage("E-Mail is not valid")
+    .isLength({ max: 255 }).withMessage("E-mail " + maxChars(255)),
+  body("password")
+    .trim()
+    .notEmpty().withMessage("Password field " + cannotBeEmpty)
+    .isLength({ max: 255 }).withMessage("Password " + maxChars(255)),
+]
+
 exports.signUpPageGet = (req, res) => {
   res.render("sign-up");
 }

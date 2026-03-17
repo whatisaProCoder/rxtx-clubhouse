@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RXTX - Sign Up</title>
+  <title>RXTX - Become Admin</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 
@@ -13,23 +13,11 @@
     <div class="content-container">
       <div class="form-container">
         <div class="title">
-          Sign Up
+          Enter Administration Code
         </div>
-        <form action="/auth/sign-up" method="POST">
+        <form action="/admin/code" method="POST">
           <div class="input-container">
-            <input type="text" name="firstName" placeholder="First Name">
-          </div>
-          <div class="input-container">
-            <input type="text" name="lastName" placeholder="Last Name">
-          </div>
-          <div class="input-container">
-            <input type="email" name="email" placeholder="E-Mail">
-          </div>
-          <div class="input-container">
-            <input type="password" name="password" placeholder="Password">
-          </div>
-          <div class="input-container">
-            <input type="password" name="confirmPassword" placeholder="Confirm Password">
+            <input type="text" name="code" placeholder="Secret Code">
           </div>
           <div class="form-button-container">
             <div style="flex:1"></div>

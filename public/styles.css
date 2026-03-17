@@ -165,20 +165,6 @@ textarea {
   padding: 0.675rem 1rem;
 }
 
-.form-container .admin-checkbox-section {
-  font-family: "Poppins-Regular";
-  accent-color: #f4f4f4;
-  margin-top: 0.75rem;
-}
-
-.admin-checkbox-section label {
-  margin-right: 0.5rem;
-}
-
-.admin-checkbox-section input {
-  scale: 1.375;
-}
-
 .form-button-container {
   display: flex;
   flex-direction: row;

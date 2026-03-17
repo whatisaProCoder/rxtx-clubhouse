@@ -53,6 +53,10 @@ const postRouter = require("./routes/postRouter");
 
 app.use("/post", postRouter);
 
+const adminRouter = require("./routes/adminRouter");
+
+app.use("/admin", adminRouter);
+
 app.get("/{*splat}", (req, res) => {
   res.status(404).render("404");
 })
