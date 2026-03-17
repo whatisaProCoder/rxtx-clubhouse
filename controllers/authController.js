@@ -79,6 +79,7 @@ exports.loginPageGet = (req, res) => {
 }
 
 exports.loginPagePost = (req, res, next) => {
+
   passport.authenticate("local", (err, user, info) => {
     if (err) return next(err);
 

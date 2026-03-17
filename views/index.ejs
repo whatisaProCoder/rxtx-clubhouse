@@ -10,6 +10,19 @@
 
 <body>
   <%- include("./partials/header") %>
+    <div class="content-container">
+      <div class="content">
+        <div class="welcome-banner">
+          <div class="greeting-section">
+            <div class="greeting">Welcome, <%= currentUser?.firstName %>!</div>
+            <div class="subtext">Join a club to become a member.</div>
+          </div>
+          <a class="banner-button" href="/membership/code">
+            Get Membership
+        </div>
+      </div>
+    </div>
+    </div>
 </body>
 
 </html>
