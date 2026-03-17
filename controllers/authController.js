@@ -72,7 +72,10 @@ exports.signUpPagePost = [
 ]
 
 exports.loginPageGet = (req, res) => {
-  res.render("log-in");
+  if (req.isAuthenticated()) {
+    return res.redirect("/");
+  }
+  res.render("log-in", { oldData: {} });
 }
 
 exports.loginPagePost = (req, res, next) => {
@@ -82,7 +85,7 @@ exports.loginPagePost = (req, res, next) => {
     if (!user) {
       return res.render("log-in", {
         errors: [{ msg: info.message }],
-        data: { email: req.body.email }
+        oldData: { email: req.body.email }
       });
     }
 
