@@ -7,7 +7,11 @@
     </div>
   </div>
   <div class="nav">
-    <a href="/auth/sign-up">Sign Up</a>
-    <a href="/auth/log-in">Login</a>
+    <% if(!locals.currentUser) { %>
+      <a href="/auth/sign-up">Sign Up</a>
+      <a href="/auth/log-in">Login</a>
+      <% } else { %>
+        <a href="/auth/log-out">Log Out</a>
+        <% } %>
   </div>
 </div>

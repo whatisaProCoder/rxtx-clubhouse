@@ -15,21 +15,24 @@
         <div class="title">
           Login
         </div>
-        <form action="/auth/log-in" method="POST">
-          <div class="input-container">
-            <input type="email" name="email" placeholder="E-Mail">
-          </div>
-          <div class="input-container">
-            <input type="password" name="password" placeholder="Password">
-          </div>
-          <div class="form-button-container">
-            <div style="flex:1"></div>
-            <div class="button-group">
-              <input type="reset" value="Reset" class="reset-button">
-              <input type="submit" value="Submit" class="submit-button">
-            </div>
-          </div>
-        </form>
+        <% if(locals.errors) { %>
+          <%- include("./errors/errors") %>
+            <% } %>
+              <form action="/auth/log-in" method="POST">
+                <div class="input-container">
+                  <input type="email" name="email" placeholder="E-Mail">
+                </div>
+                <div class="input-container">
+                  <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-button-container">
+                  <div style="flex:1"></div>
+                  <div class="button-group">
+                    <input type="reset" value="Reset" class="reset-button">
+                    <input type="submit" value="Submit" class="submit-button">
+                  </div>
+                </div>
+              </form>
       </div>
     </div>
 </body>

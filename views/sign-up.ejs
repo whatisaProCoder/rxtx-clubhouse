@@ -15,30 +15,35 @@
         <div class="title">
           Sign Up
         </div>
-        <form action="/auth/sign-up" method="POST">
-          <div class="input-container">
-            <input type="text" name="firstName" placeholder="First Name" value="<% oldData?.firstName %>">
-          </div>
-          <div class="input-container">
-            <input type="text" name="lastName" placeholder="Last Name">
-          </div>
-          <div class="input-container">
-            <input type="email" name="email" placeholder="E-Mail">
-          </div>
-          <div class="input-container">
-            <input type="password" name="password" placeholder="Password">
-          </div>
-          <div class="input-container">
-            <input type="password" name="confirmPassword" placeholder="Confirm Password">
-          </div>
-          <div class="form-button-container">
-            <div style="flex:1"></div>
-            <div class="button-group">
-              <input type="reset" value="Reset" class="reset-button">
-              <input type="submit" value="Submit" class="submit-button">
-            </div>
-          </div>
-        </form>
+        <% if(locals.errors) { %>
+          <%- include("./errors/errors") %>
+            <% } %>
+              <form action="/auth/sign-up" method="POST">
+                <div class="input-container">
+                  <input type="text" name="firstName" placeholder="First Name" value="<%= oldData?.firstName || '' %>"
+                    required>
+                </div>
+                <div class="input-container">
+                  <input type="text" name="lastName" placeholder="Last Name" value="<%= oldData?.lastName || '' %>"
+                    required>
+                </div>
+                <div class="input-container">
+                  <input type="email" name="email" placeholder="E-Mail" value="<%= oldData?.email || '' %>" required>
+                </div>
+                <div class="input-container">
+                  <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-container">
+                  <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+                </div>
+                <div class="form-button-container">
+                  <div style="flex:1"></div>
+                  <div class="button-group">
+                    <input type="reset" value="Reset" class="reset-button">
+                    <input type="submit" value="Submit" class="submit-button">
+                  </div>
+                </div>
+              </form>
       </div>
     </div>
 </body>

@@ -1,5 +1,6 @@
 const passport = require("passport");
 const db = require("../db/queries");
+const bcrypt = require("bcryptjs");
 
 const { body, validationResult, matchedData } = require("express-validator");
 
@@ -34,11 +35,11 @@ const validateUserSignUp = [
   body("confirmPassword")
     .trim()
     .custom((value, { req }) => value == req.body.password)
-    .withMessage("Passwords don't match!")
+    .withMessage("Passwords don't match")
 ]
 
 exports.signUpPageGet = (req, res) => {
-  res.render("sign-up");
+  res.render("sign-up", { oldData: {} });
 }
 
 exports.signUpPagePost = [
@@ -66,7 +67,7 @@ exports.signUpPagePost = [
       next(error);
     }
 
-    res.redirect("/log-in");
+    res.redirect("/auth/log-in");
   }
 ]
 
@@ -91,3 +92,12 @@ exports.loginPagePost = (req, res, next) => {
     });
   })(req, res, next);
 };
+
+exports.logOutGet = (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  })
+}

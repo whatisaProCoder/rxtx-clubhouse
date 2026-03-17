@@ -6,13 +6,13 @@ exports.getUserUsingEmail = async (email) => {
 }
 
 exports.getUserUsingID = async (id) => {
-  const { rows } = await pool.query("SELEECT * FROM users WHERE id = $1", [id]);
+  const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
   return rows[0];
 }
 
 exports.addUser = async ({ firstName, lastName, email, hashedPassword }) => {
   await pool.query(
-    "INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4)",
+    "INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4)",
     [firstName, lastName, email, hashedPassword]
   );
 }
