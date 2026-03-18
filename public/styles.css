@@ -238,7 +238,6 @@ textarea {
 @media screen and (max-width:1400px) {
   .content {
     width: 100%;
-    padding-top: 1.5rem;
     padding-left: 3rem;
     padding-right: 3rem;
   }
@@ -248,6 +247,7 @@ textarea {
   .content {
     width: 100%;
     padding: 1.5rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -404,8 +404,7 @@ textarea {
 
 @media screen and (max-width:768px) {
   .post {
-    padding: 0.5rem;
-    padding-top: 1rem;
+    padding: 1rem;
   }
 
   .post .avatar {
