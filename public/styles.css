@@ -53,6 +53,7 @@ a {
   justify-content: space-between;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 .header .brand-section {
@@ -224,6 +225,8 @@ textarea {
 
 .content {
   width: 1378px;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
 }
 
 @media screen and (max-width:1400px) {
@@ -238,7 +241,7 @@ textarea {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 3rem;
+  margin-bottom: 4rem;
 }
 
 .welcome-banner .greeting-section {
@@ -288,4 +291,89 @@ textarea {
   .welcome-banner .banner-button {
     width: 100%;
   }
+}
+
+.posts-section .title {
+  font-family: "Poppins-Bold";
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.posts-section .posts-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.post {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border-bottom: 1px solid #373737;
+  padding: 1.25rem;
+}
+
+.post .avatar {
+  height: 3.5rem;
+  scale: 1.2;
+}
+
+.post .post-content {
+  margin-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.post .user-name {
+  font-family: "Poppins-SemiBold";
+  font-size: 1.125rem;
+}
+
+.post .post-title {
+  font-family: "Poppins-Bold";
+  font-size: 0.95rem;
+}
+
+.post .post-body {
+  font-family: "Poppins-Medium";
+  font-size: 0.95rem;
+}
+
+.post .date-chip {
+  background-color: #373737;
+  color: #c2c2c2;
+  font-family: "Poppins-Medium";
+  font-size: 0.9rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4rem;
+}
+
+.end-of-page-prompt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 5rem;
+}
+
+.end-of-page-prompt .chip {
+  border: 1px solid #737373;
+  color: #c2c2c2;
+  font-family: "Poppins-Medium";
+  font-size: 0.9rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4rem;
+}
+
+.end-of-page-prompt .action-links {
+  font-family: "Poppins-Medium";
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+}
+
+.end-of-page-prompt .action-links a {
+  text-decoration: underline;
 }

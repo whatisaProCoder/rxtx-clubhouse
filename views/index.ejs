@@ -12,8 +12,8 @@
   <%- include("./partials/header") %>
     <div class="content-container">
       <div class="content">
-        <div class="welcome-banner">
-          <% if(locals.currentUser) {%>
+        <% if(locals.currentUser) {%>
+          <div class="welcome-banner">
             <% if(!currentUser.is_member && !currentUser.is_admin) { %>
               <div class="greeting-section">
                 <div class="greeting">Welcome, <%= currentUser.firstname %>!</div>
@@ -31,8 +31,24 @@
                   New Post
                 </a>
                 <% } %>
-                  <% } %>
-        </div>
+          </div>
+          <% } %>
+            <div class="posts-section">
+              <div class="title">Posts</div>
+              <div class="posts-container">
+                <% for(let i=0;i<10;i++) { %>
+                  <%- include("./partials/post.ejs") %>
+                    <% } %>
+              </div>
+            </div>
+            <% if(!locals.currentUser) { %>
+              <div class="end-of-page-prompt">
+                <div class="chip">Discuss about computers, robotics and electronics by joining the club</div>
+                <div class="action-links">
+                  <a href="/auth/log-in">Login</a> or <a href="/auth/sign-up">Sign Up</a>
+                </div>
+              </div>
+              <% } %>
       </div>
     </div>
     </div>
