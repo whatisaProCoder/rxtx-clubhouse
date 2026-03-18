@@ -300,13 +300,10 @@ textarea {
 @media screen and (max-width:650px) {
   .welcome-banner {
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
     text-align: center;
     margin-top: 2rem;
-  }
-
-  .welcome-banner .greeting-section {
-    width: 100%;
   }
 
   .welcome-banner .banner-button {
