@@ -366,11 +366,13 @@ textarea {
 .post .post-title {
   font-family: "Poppins-SemiBold";
   font-size: 1rem;
+  color: #dcdcdc;
 }
 
 .post .post-body {
   font-family: "Poppins-Medium";
   font-size: 0.95rem;
+  color: #c2c2c2;
 }
 
 .post .date-chip {
