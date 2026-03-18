@@ -12,7 +12,7 @@ const validatePost = [
   body("body")
     .trim()
     .notEmpty().withMessage("Body cannot be empty")
-    .isLength({ min: 25, max: 255 }).withMessage("Body must be within 25 to 255 characters"),
+    .isLength({ min: 25, max: 500 }).withMessage("Body must be within 25 to 500 characters"),
 ]
 
 exports.newPostGet = (req, res) => {
