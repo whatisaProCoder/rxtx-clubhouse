@@ -1,5 +1,7 @@
 # RXTX Clubhouse
 
+![showcase](./showcase.png)
+
 An exclusive clubhouse app where users can create posts and interact based on roles.
 
 This project was built for The Odin Project "Members Only" assignment using Node.js, Express, PostgreSQL, Passport.js, and EJS.
