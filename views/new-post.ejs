@@ -20,12 +20,12 @@
             <% } %>
               <form action="/post/new" method="POST">
                 <div class="input-container">
-                  <input type="text" name="title" placeholder="Title">
+                  <input type="text" name="title" placeholder="Title" value="<%= oldData?.title %>">
                 </div>
                 <div class="input-container">
-                  <textarea name="body" placeholder="Write something..."></textarea>
+                  <textarea name="body" placeholder="Write something..."><%= oldData?.body %></textarea>
                 </div>
-                <div class="form-button-container">
+                <div class=" form-button-container">
                   <div style="flex:1"></div>
                   <div class="button-group">
                     <input type="reset" value="Reset" class="reset-button">

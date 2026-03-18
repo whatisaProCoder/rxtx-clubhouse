@@ -16,7 +16,7 @@ const validatePost = [
 ]
 
 exports.newPostGet = (req, res) => {
-  res.render("new-post");
+  res.render("new-post", { oldData: {} });
 }
 
 exports.newPostPost = [
@@ -25,7 +25,7 @@ exports.newPostPost = [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      return res.render("new-post", { errors: errors.array() });
+      return res.render("new-post", { errors: errors.array(), oldData: req.body });
     }
 
     const { title, body } = matchedData(req);
