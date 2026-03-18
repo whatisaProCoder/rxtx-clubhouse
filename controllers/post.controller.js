@@ -1,6 +1,6 @@
 const db = require("../db/queries");
 
-const { isAdmin } = require("../middleware/authMiddleware");
+const { isAdmin } = require("../middleware/auth.middleware");
 
 const { body, validationResult, matchedData } = require("express-validator");
 

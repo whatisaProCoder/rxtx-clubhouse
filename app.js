@@ -8,9 +8,9 @@ const pgSession = require("connect-pg-simple")(expressSession);
 const pool = require("./db/pool");
 const initializePassport = require("./config/passport");
 const passport = require("passport");
-const userMiddleware = require("./middleware/userMiddleware");
-const errorMiddleware = require("./middleware/errorMiddleware");
-const { isAuth, isMember } = require("./middleware/authMiddleware");
+const userMiddleware = require("./middleware/user.middleware");
+const errorMiddleware = require("./middleware/error.middleware");
+const { isAuth, isMember } = require("./middleware/auth.middleware");
 
 const sessionStore = new pgSession({ pool: pool });
 
@@ -38,23 +38,23 @@ app.use(userMiddleware);
 
 // routers
 
-const homeRouter = require("./routes/homeRouter");
+const homeRouter = require("./routes/home.router");
 
 app.use("/", homeRouter);
 
-const authRouter = require("./routes/authRouter");
+const authRouter = require("./routes/auth.router");
 
 app.use("/auth", authRouter);
 
-const membershipRouter = require("./routes/membershipRouter");
+const membershipRouter = require("./routes/membership.router");
 
 app.use("/membership", isAuth, membershipRouter);
 
-const postRouter = require("./routes/postRouter");
+const postRouter = require("./routes/post.router");
 
 app.use("/post", isAuth, postRouter);
 
-const adminRouter = require("./routes/adminRouter");
+const adminRouter = require("./routes/admin.router");
 
 app.use("/admin", isAuth, isMember, adminRouter);
 
