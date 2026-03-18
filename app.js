@@ -52,7 +52,7 @@ app.use("/membership", isAuth, membershipRouter);
 
 const postRouter = require("./routes/postRouter");
 
-app.use("/post", isAuth, isMember, postRouter);
+app.use("/post", isAuth, postRouter);
 
 const adminRouter = require("./routes/adminRouter");
 

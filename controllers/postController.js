@@ -21,7 +21,7 @@ exports.newPostGet = (req, res) => {
 
 exports.newPostPost = [
   validatePost,
-  async (req, res) => {
+  async (req, res, next) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -42,7 +42,7 @@ exports.newPostPost = [
 
 exports.deletePostGet = [
   isAdmin,
-  async (req, res) => {
+  async (req, res, next) => {
     const postID = req.params.id;
 
     try {

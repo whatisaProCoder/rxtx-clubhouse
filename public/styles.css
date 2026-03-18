@@ -311,10 +311,17 @@ textarea {
   }
 }
 
+.posts-section .title-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
 .posts-section .title {
   font-family: "Poppins-Bold";
   font-size: 1.125rem;
-  margin-bottom: 1.5rem;
 }
 
 .posts-section .posts-container {
@@ -431,8 +438,8 @@ textarea {
   }
 }
 
-.end-of-page-prompt .chip {
-  border: 1px solid #737373;
+.chip {
+  border: 2px solid #737373;
   color: #c2c2c2;
   font-family: "Poppins-Medium";
   font-size: 0.9rem;
@@ -441,12 +448,12 @@ textarea {
   text-align: center;
 }
 
-.end-of-page-prompt .action-links {
+.action-links {
   font-family: "Poppins-Medium";
   font-size: 1rem;
   margin-bottom: 0.15rem;
 }
 
-.end-of-page-prompt .action-links a {
+.action-links a {
   text-decoration: underline;
 }

@@ -42,7 +42,13 @@
           </div>
           <% } %>
             <div class="posts-section">
-              <div class="title">Posts</div>
+              <div class="title-section">
+                <div class="title">Posts</div>
+                <% if(locals.currentUser && !currentUser?.is_member) { %>
+                  <a href="/post/new" class="chip" style="color:#f4f4f4; font-family: 'Poppins-SemiBold';">New
+                    Post</a>
+                  <% } %>
+              </div>
               <% if (locals.posts) { %>
                 <% if(!posts || posts.length===0) { %>
                   <div class="no-posts">Crickets here... Be the first one to post!</div>

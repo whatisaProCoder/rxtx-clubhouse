@@ -19,7 +19,7 @@ const validateCode = [
 
 exports.membershipCodePost = [
   validateCode,
-  async (req, res) => {
+  async (req, res, next) => {
     if (req.user.is_member) {
       return res.redirect("/");
     }

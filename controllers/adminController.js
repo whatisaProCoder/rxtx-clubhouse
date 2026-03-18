@@ -20,7 +20,7 @@ const validateCode = [
 
 exports.adminCodePost = [
   validateCode,
-  async (req, res) => {
+  async (req, res, next) => {
     if (req.user.is_admin) {
       return res.redirect("/");
     }

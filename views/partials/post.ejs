@@ -15,16 +15,18 @@
     <div class="post-body">
       <%= post.body %>
     </div>
-    <div class="info-section">
-      <div class="date-chip">
-        <%= new Intl.DateTimeFormat('en-IN', { dateStyle:'medium' , timeStyle: 'short' } ).format(new
-          Date(post.created_at)) %>
+    <% if(currentUser?.is_member) { %>
+      <div class="info-section">
+        <div class="date-chip">
+          <%= new Intl.DateTimeFormat('en-IN', { dateStyle:'medium' , timeStyle: 'short' } ).format(new
+            Date(post.created_at)) %>
+        </div>
+        <% if(currentUser?.is_admin) { %>
+          <div class="dot">•</div>
+          <a href="/post/delete/<%= post.id %>"><img class="delete-icon" src="/delete-icon.svg" alt="Delete"></a>
+          <% } %>
       </div>
-      <% if(currentUser?.is_admin) { %>
-        <div class="dot">•</div>
-        <a href="/post/delete/<%= post.id %>"><img class="delete-icon" src="/delete-icon.svg" alt="Delete"></a>
-        <% } %>
-    </div>
+      <% } %>
   </div>
 
 </div>
