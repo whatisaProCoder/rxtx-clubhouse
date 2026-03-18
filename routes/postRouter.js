@@ -8,4 +8,6 @@ postRouter.get("/new", postController.newPostGet);
 
 postRouter.post("/new", postController.newPostPost);
 
+postRouter.get("/delete/:id", postController.deletePostGet);
+
 module.exports = postRouter;

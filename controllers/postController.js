@@ -1,5 +1,7 @@
 const db = require("../db/queries");
 
+const { isAdmin } = require("../middleware/authMiddleware");
+
 const { body, validationResult, matchedData } = require("express-validator");
 
 const validatePost = [
@@ -30,6 +32,21 @@ exports.newPostPost = [
 
     try {
       await db.addPost({ used_id: req.user.id, title, body });
+    } catch (error) {
+      next(error);
+    }
+
+    res.redirect("/");
+  }
+]
+
+exports.deletePostGet = [
+  isAdmin,
+  async (req, res) => {
+    const postID = req.params.id;
+
+    try {
+      await db.deletePost({ id: postID });
     } catch (error) {
       next(error);
     }

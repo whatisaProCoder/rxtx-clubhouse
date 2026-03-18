@@ -22,15 +22,23 @@
               <a class="banner-button" href="/membership/code">
                 Get Membership
               </a>
-              <% } else if(currentUser.is_member) { %>
+              <% } else if(currentUser.is_admin) { %>
                 <div class="greeting-section">
                   <div class="greeting">Welcome, <%= currentUser.firstname %>!</div>
-                  <div class="subtext">You are a member of this exclusive club.</div>
+                  <div class="subtext">You are a moderator of this exclusive club.</div>
                 </div>
                 <a class="banner-button" href="/post/new">
                   New Post
                 </a>
-                <% } %>
+                <% } else if(currentUser.is_member) { %>
+                  <div class="greeting-section">
+                    <div class="greeting">Welcome, <%= currentUser.firstname %>!</div>
+                    <div class="subtext">You are a member of this exclusive club.</div>
+                  </div>
+                  <a class="banner-button" href="/post/new">
+                    New Post
+                  </a>
+                  <% } %>
           </div>
           <% } %>
             <div class="posts-section">
@@ -53,7 +61,14 @@
                   <a href="/auth/log-in">Login</a> or <a href="/auth/sign-up">Sign Up</a>
                 </div>
               </div>
-              <% } %>
+              <% } else if(currentUser?.is_member && !currentUser?.is_admin) { %>
+                <div class="end-of-page-prompt">
+                  <div class="chip">Managing the clubhouse is a big responsibility. Become a club moderator!</div>
+                  <div class="action-links">
+                    <a href="/admin/code">Join Now</a>
+                  </div>
+                </div>
+                <% } %>
       </div>
     </div>
     </div>

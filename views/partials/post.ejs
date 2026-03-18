@@ -23,6 +23,10 @@
         <%= new Intl.DateTimeFormat('en-IN', { dateStyle:'medium' , timeStyle: 'short' } ).format(new
           Date(post.created_at)) %>
       </div>
+      <% if(currentUser?.is_admin) { %>
+        <div class="dot">•</div>
+        <a href="/post/delete/<%= post.id %>"><img class="delete-icon" src="/delete-icon.svg" alt="Delete"></a>
+        <% } %>
     </div>
   </div>
 

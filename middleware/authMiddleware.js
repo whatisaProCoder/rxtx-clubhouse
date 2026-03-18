@@ -14,4 +14,12 @@ const isMember = (req, res, next) => {
   }
 }
 
-module.exports = { isAuth, isMember };
+const isAdmin = (req, res, next) => {
+  if (req.user.is_admin) {
+    next();
+  } else {
+    res.status(401).render("not-permitted");
+  }
+}
+
+module.exports = { isAuth, isMember, isAdmin };

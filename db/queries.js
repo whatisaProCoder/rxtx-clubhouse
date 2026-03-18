@@ -39,7 +39,7 @@ exports.addPost = async ({ used_id, title, body }) => {
 }
 
 exports.getAllPosts = async () => {
-  const { rows } = await pool.query("SELECT u.firstname, u.lastname, p.title, p.body, p.created_at FROM posts p JOIN users u ON p.user_id=u.id");
+  const { rows } = await pool.query("SELECT u.firstname, u.lastname, p.id, p.title, p.body, p.created_at FROM posts p JOIN users u ON p.user_id=u.id");
   return rows;
 }
 
