@@ -6,4 +6,6 @@ const postRouter = Router();
 
 postRouter.get("/new", postController.newPostGet);
 
+postRouter.post("/new", postController.newPostPost);
+
 module.exports = postRouter;

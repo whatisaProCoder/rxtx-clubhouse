@@ -10,7 +10,7 @@ const initializePassport = require("./config/passport");
 const passport = require("passport");
 const userMiddleware = require("./middleware/userMiddleware");
 const errorMiddleware = require("./middleware/errorMiddleware");
-const isAuth = require("./middleware/authMiddleware");
+const { isAuth, isMember } = require("./middleware/authMiddleware");
 
 const sessionStore = new pgSession({ pool: pool });
 
@@ -52,11 +52,11 @@ app.use("/membership", isAuth, membershipRouter);
 
 const postRouter = require("./routes/postRouter");
 
-app.use("/post", isAuth, postRouter);
+app.use("/post", isAuth, isMember, postRouter);
 
 const adminRouter = require("./routes/adminRouter");
 
-app.use("/admin", isAuth, adminRouter);
+app.use("/admin", isAuth, isMember, adminRouter);
 
 app.get("/{*splat}", (req, res) => {
   res.status(404).render("404");

@@ -35,11 +35,16 @@
           <% } %>
             <div class="posts-section">
               <div class="title">Posts</div>
-              <div class="posts-container">
-                <% for(let i=0;i<10;i++) { %>
-                  <%- include("./partials/post.ejs") %>
-                    <% } %>
-              </div>
+              <% if (locals.posts) { %>
+                <% if(!posts || posts.length===0) { %>
+                  <div class="no-posts">Crickets here... Be the first one to post!</div>
+                  <% } else { %>
+                    <div class="posts-container">
+                      <% posts.forEach((post)=> { %>
+                        <%- include("./partials/post.ejs", {post:post}) %>
+                          <% }) %>
+                    </div>
+                    <% }} %>
             </div>
             <% if(!locals.currentUser) { %>
               <div class="end-of-page-prompt">

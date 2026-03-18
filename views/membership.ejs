@@ -15,18 +15,21 @@
         <div class="title">
           Enter Membership Code
         </div>
-        <form action="/membership/code" method="POST">
-          <div class="input-container">
-            <input type="text" name="code" placeholder="Secret Code">
-          </div>
-          <div class="form-button-container">
-            <div style="flex:1"></div>
-            <div class="button-group">
-              <input type="reset" value="Reset" class="reset-button">
-              <input type="submit" value="Submit" class="submit-button">
-            </div>
-          </div>
-        </form>
+        <% if(locals.errors) { %>
+          <%- include("./errors/errors") %>
+            <% } %>
+              <form action="/membership/code" method="POST">
+                <div class="input-container">
+                  <input type="text" name="code" placeholder="Secret Code" required>
+                </div>
+                <div class="form-button-container">
+                  <div style="flex:1"></div>
+                  <div class="button-group">
+                    <input type="reset" value="Reset" class="reset-button">
+                    <input type="submit" value="Submit" class="submit-button">
+                  </div>
+                </div>
+              </form>
       </div>
     </div>
 </body>
