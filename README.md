@@ -1,6 +1,6 @@
 # RXTX Clubhouse
 
-![showcase](./showcase.png)
+![showcase](./public/showcase.png)
 
 An exclusive clubhouse app where users can create posts and interact based on roles.
 
